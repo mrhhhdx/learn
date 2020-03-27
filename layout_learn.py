@@ -27,7 +27,7 @@ if __name__ == '__main__':
     gui.show()
     sys.exit(app.exec_())
 '''
-
+'''
 #网格布局
 #网格布局与水平布局和垂直布局皆不一样，网格布局内部通过一个无形的网格来对其中的控件进行布局。
 class LayoutApp2(QtWidgets.QMainWindow):
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     gui = LayoutApp2()
     gui.show()
     sys.exit(app.exec_())
-
+'''
 
 #表单布局
 #带两个参数的addRow()方法，会将第一个参数控件作为表单的标签进行布局，将第一个参数控件作为表单的输入控件进行布局；带一个参数的addRow()方法会将控件直接铺满一行；带一个参数的addWidget()方法则会留空表单标签的位置。
@@ -62,6 +62,13 @@ class LayoutApp(QtWidgets.QMainWindow):
 
     def __init__(self):
         super().__init__()
+
+        #要在主窗口中添加菜单栏，我们只需要实例化一个QMenuBar()类，然后向其中添加具体的菜单项即可
+        file_menu = QtWidgets.QMenuBar(self) # 实例化一个菜单栏
+        file_menu.setFixedWidth(200) # 设置菜单栏的宽度
+        file_menu.addMenu("文件") # 添加一个菜单按钮
+        file_menu.addMenu("编辑") # 添加一个菜单按钮
+        file_menu.addMenu("关于") # 添加一个菜单按钮
 
         main_widget = QtWidgets.QWidget() # 实例化一个widget控件
         main_layout = QtWidgets.QFormLayout() # 实例化一个垂直布局层
@@ -76,10 +83,16 @@ class LayoutApp(QtWidgets.QMainWindow):
         main_layout.addRow(button_3)
         main_layout.addWidget(button_4)
 
+        status = self.statusBar()
+        status.showMessage("这是一个状态栏消息")
+
         self.setCentralWidget(main_widget) # 设置窗口的中央部件
 
-if __name__ == '__main__':
+def main():
     app = QtWidgets.QApplication(sys.argv)
     gui = LayoutApp()
     gui.show()
     sys.exit(app.exec_())
+
+if __name__ == '__main__':
+    main()
