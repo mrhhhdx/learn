@@ -82,6 +82,21 @@ class LayoutApp(QtWidgets.QMainWindow):
         main_layout.addRow(button_1,button_2)
         main_layout.addRow(button_3)
         main_layout.addWidget(button_4)
+        '''
+        Line_Edit_1 = QtWidgets.QLineEdit("设置文字")
+        main_layout.addRow(Line_Edit_1)
+        button_5 = QtWidgets.QPushButton('提交按钮')
+        main_layout.addRow(button_5)
+        button_5.clicked.connect(self.clicks)  # 连接点击信号到响应方法
+        '''
+
+        Line_Edit_1 = QtWidgets.QLineEdit("设置文字") # 控件创建
+        main_layout.addRow(Line_Edit_1)
+        Line_Edit_1.setText("设置文字1")  # 设置字符串
+        Line_Edit_1.insert('插入的字符串')  # 从光标处插入字符串
+        Line_Edit_1.text()  # 获取真是的文本字符
+        Line_Edit_1.displayText()  # 获取用户能看到的字符串
+
 
         status = self.statusBar()
         status.showMessage("这是一个状态栏消息")
@@ -96,3 +111,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+    
